@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="apps.gligerglg.geotone.AddLocation"
+    android:id="@+id/layout_add_location">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.mapbox.mapboxsdk.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </com.mapbox.mapboxsdk.maps.MapView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_myPosition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="25dp"
+            android:src="@drawable/ic_gps_fixed"
+            app:backgroundTint="@color/mapbox_blue" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_setLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="25dp"
+            android:src="@drawable/ic_navigate_next_"
+            app:backgroundTint="@color/color_floating_task" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

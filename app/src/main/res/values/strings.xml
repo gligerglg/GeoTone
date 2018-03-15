@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">GeoTone</string>
+    <string name="place_title">Place Title</string>
+    <string name="proximity_radius">Proximity Radius</string>
+    <string name="_200_m">200 m</string>
+    <string name="pick_a_date">Pick a Date</string>
+    <string name="pick_a_time">Pick a Time</string>
+    <string name="set_task">Set Task</string>
+    <string name="description">Description</string>
+    <string name="todo">TODO</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="about_desc">\tThink you are working in an office and you should turn
+your mobile silent when you\'re inside it. It\'s a forgettable
+thing that changing profiles when reaching to office and leaving
+from office.\n\n\t
+Now it doesn\'t matter wherever you are, GeoTone will
+takecare of your sound profiles according to your
+location. Pick a place,set your profile and start GeoTone. That\'s it!\n\n
+\t
+Need to memorize something in a specific location, in a specific day and
+in a specific time? Set your place, date, time and the description in GeoTone-Tasks
+application will send you a notification when you reach to the place
+in initiated date and time.
+\n\n
+*Make sure to enable your GPS before starting GeoTone services</string>
+    <string name="about_d1">GeoTone is a geo based native mobile application which will
+give you freedom to make your own sound profiles and Geo-Tasks
+for specific locations.</string>
+
+    <string name="contact">H.K. Gayan Lakshitha Gunarathna\nBachelor of Computer Science, \nUniversity of Ruhuna\nSri Lanka</string>
+    <string name="todoa">TODO</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+</resources>

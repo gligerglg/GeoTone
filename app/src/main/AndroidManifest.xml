@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="apps.gligerglg.geotone">
+
+    <uses-permission android:name="android.permisssion.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permisssion.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permisssion.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <service android:name="apps.gligerglg.geotone.BackgroundService"/>
+
+        <activity android:name="apps.gligerglg.geotone.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="apps.gligerglg.geotone.MainMenu" android:launchMode="singleTask"/>
+        <activity android:name="apps.gligerglg.geotone.AddLocation" android:launchMode="singleTask"/>
+        <activity android:name="apps.gligerglg.geotone.AddNewPlace" android:launchMode="singleTask"/>
+        <activity android:name="apps.gligerglg.geotone.AddNewActivity" android:launchMode="singleTask"/>
+        <activity android:name="apps.gligerglg.geotone.MapActivity" android:launchMode="singleTask"/>
+        <activity android:name="apps.gligerglg.geotone.About" android:launchMode="singleTask"/>
+        <activity android:name="apps.gligerglg.geotone.Intro" android:launchMode="singleTask"/>
+        <activity android:name="apps.gligerglg.geotone.Contact" android:launchMode="singleTask"></activity>
+    </application>
+
+</manifest>

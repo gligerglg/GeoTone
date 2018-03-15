@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#8011b5</color>
+    <color name="colorPrimaryDark">#480a6d</color>
+    <color name="colorAccent">#b81de3</color>
+    <color name="background">#292929</color>
+    <color name="colorBackground">#424242</color>
+    <color name="colorPrimaryLight">#8806c6</color>
+    <color name="color_floating_place">#bc0707</color>
+    <color name="color_floating_task">#168716</color>
+    <color name="background_material_light">#252525</color>
+    <color name="text_color_primary">#e7e6e6</color>
+    <color name="foreground_material_light">#ddd7d7</color>
+    <color name="background_material_dark_1">#303030</color>
+</resources>
