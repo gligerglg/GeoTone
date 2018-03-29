@@ -4,6 +4,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
@@ -34,6 +35,7 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this,"pk.eyJ1IjoiZ2xpZ2VyIiwiYSI6ImNqZWJzN2Z6bzBkYTQyeG1rNW9rMjAwZncifQ.69m8fnyfGB4N1VtvmzpnOA");
         setContentView(R.layout.activity_map);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Init();
 

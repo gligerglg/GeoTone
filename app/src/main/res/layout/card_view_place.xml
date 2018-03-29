@@ -41,7 +41,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
-                android:text="Place Title"
+                android:text="@string/place_title"
                 android:textAllCaps="false"
                 android:textColor="@color/text_color_primary"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -64,15 +64,15 @@
                     android:id="@+id/img_cv_place_vibrate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:src="@drawable/ic_vibration_on" />
 
                 <ImageView
                     android:id="@+id/img_cv_place_airplane"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:src="@drawable/ic_airplane_off" />
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_airplane_off" android:contentDescription="TODO"/>
 
                 <ImageView
                     android:id="@+id/img_cv_place_sound"

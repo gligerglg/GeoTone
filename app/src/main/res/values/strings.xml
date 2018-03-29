@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">GeoTone</string>
-    <string name="place_title">Place Title</string>
     <string name="proximity_radius">Proximity Radius</string>
     <string name="_200_m">200 m</string>
     <string name="pick_a_date">Pick a Date</string>
@@ -30,6 +29,12 @@ for specific locations.</string>
 
     <string name="contact">H.K. Gayan Lakshitha Gunarathna\nBachelor of Computer Science, \nUniversity of Ruhuna\nSri Lanka</string>
     <string name="todoa">TODO</string>
+    <string name="geotone">GeoTone</string>
+    <string name="place_title">Place Title</string>
+    <string name="task_title">Task Title</string>
+    <string name="date_2018_02_14">Date : 2018/02/14</string>
+    <string name="time_12_35_am">Time : 12:35 AM</string>
+    <string name="geotone_menu">GeoTone Menu</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 

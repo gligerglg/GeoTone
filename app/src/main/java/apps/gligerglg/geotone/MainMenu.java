@@ -1,7 +1,9 @@
 package apps.gligerglg.geotone;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -16,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
@@ -34,7 +37,7 @@ public class MainMenu extends AppCompatActivity implements TabLayout.OnTabSelect
     private FloatingActionButton floatingActionButton;
     private ActionBarDrawerToggle drawerToggle;
     private NavigationView navigationView;
-
+    private PagerAdapter pagerAdapter;
     private ArrayList<Place> placeList;
     private ArrayList<Task> taskList;
     private DBPlaceHelper dbPlaceHelper;
@@ -57,6 +60,7 @@ public class MainMenu extends AppCompatActivity implements TabLayout.OnTabSelect
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -107,7 +111,7 @@ public class MainMenu extends AppCompatActivity implements TabLayout.OnTabSelect
 
         tabLayout.addTab(tabLayout.newTab().setText("Places"));
         tabLayout.addTab(tabLayout.newTab().setText("Tasks"));
-        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
+        pagerAdapter = new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.addOnTabSelectedListener(this);
@@ -143,7 +147,8 @@ public class MainMenu extends AppCompatActivity implements TabLayout.OnTabSelect
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         viewPager.setCurrentItem(tab.getPosition());
-        setAnimationButton(tab.getPosition());
+        //if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+            setAnimationButton(tab.getPosition());
         tabIndex = tab.getPosition();
     }
 
@@ -157,6 +162,7 @@ public class MainMenu extends AppCompatActivity implements TabLayout.OnTabSelect
 
     }
 
+    @TargetApi(21)
     protected void setAnimationButton(final int position)
     {
         floatingActionButton.clearAnimation();
@@ -270,5 +276,12 @@ public class MainMenu extends AppCompatActivity implements TabLayout.OnTabSelect
 
         editor.commit();
         return isStarted;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pagerAdapter.notifyDataSetChanged();
+        viewPager.setAdapter(pagerAdapter);
     }
 }

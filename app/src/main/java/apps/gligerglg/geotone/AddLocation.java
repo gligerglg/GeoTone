@@ -9,7 +9,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
@@ -31,22 +36,30 @@ public class AddLocation extends AppCompatActivity {
     private Location myPosition;
     private Bundle bundle;
     private int tabIndex=0;
+    private InterstitialAd mInterstitialAd;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this,"pk.eyJ1IjoiZ2xpZ2VyIiwiYSI6ImNqZWJzN2Z6bzBkYTQyeG1rNW9rMjAwZncifQ.69m8fnyfGB4N1VtvmzpnOA");
         setContentView(R.layout.activity_add_location);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-       //Initialize
+        // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
+        MobileAds.initialize(this, "ca-app-pub-2629585729370619~7922714837");
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-2629585729370619/8484207213");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+
+        //Initialize
         Init();
 
         btn_setLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(isLocationOK) {
-                    Intent intent;
-
                     if(tabIndex==0)
                         intent = new Intent(AddLocation.this,AddNewPlace.class);
                     else
@@ -54,7 +67,11 @@ public class AddLocation extends AppCompatActivity {
 
                     intent.putExtra("latitude",myPosition.getLatitude());
                     intent.putExtra("longitude",myPosition.getLongitude());
-                    startActivity(intent);
+
+                    if (mInterstitialAd.isLoaded())
+                        mInterstitialAd.show();
+                    else
+                        startActivity(intent);
                 }
                 else
                     setMessage("You Need to Set a Location First!");
@@ -114,7 +131,32 @@ public class AddLocation extends AppCompatActivity {
         });
 
 
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
 
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -124,7 +166,7 @@ public class AddLocation extends AppCompatActivity {
         layout = findViewById(R.id.layout_add_location);
         mapView = findViewById(R.id.mapView);
         locusService = new LocusService(this);
-
+        intent = null;
         bundle = getIntent().getExtras();
         tabIndex = bundle.getInt("service");
 

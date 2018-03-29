@@ -2,24 +2,38 @@ package apps.gligerglg.geotone;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class Contact extends AppCompatActivity {
 
     private ImageButton btn_facebook, btn_github, btn_linkedin, btn_email;
-    private LinearLayout layout;
+    private ConstraintLayout layout;
     private CardView btn_myWeb;
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
+        MobileAds.initialize(this, "ca-app-pub-2629585729370619~7922714837");
+        adView = findViewById(R.id.adView_Contact);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         btn_email = findViewById(R.id.btn_gmail);
         btn_facebook = findViewById(R.id.btn_facebook);

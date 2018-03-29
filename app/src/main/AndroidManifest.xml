@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permisssion.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permisssion.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permisssion.INTERNET" />
+    <uses-sdk android:minSdkVersion="18" android:maxSdkVersion="26" android:targetSdkVersion="26"/>
 
     <application
         android:allowBackup="true"
@@ -15,21 +16,21 @@
         android:theme="@style/AppTheme">
         <service android:name="apps.gligerglg.geotone.BackgroundService"/>
 
-        <activity android:name="apps.gligerglg.geotone.SplashScreen">
+        <activity android:name="apps.gligerglg.geotone.SplashScreen" android:configChanges="orientation" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="apps.gligerglg.geotone.MainMenu" android:launchMode="singleTask"/>
-        <activity android:name="apps.gligerglg.geotone.AddLocation" android:launchMode="singleTask"/>
-        <activity android:name="apps.gligerglg.geotone.AddNewPlace" android:launchMode="singleTask"/>
-        <activity android:name="apps.gligerglg.geotone.AddNewActivity" android:launchMode="singleTask"/>
-        <activity android:name="apps.gligerglg.geotone.MapActivity" android:launchMode="singleTask"/>
-        <activity android:name="apps.gligerglg.geotone.About" android:launchMode="singleTask"/>
-        <activity android:name="apps.gligerglg.geotone.Intro" android:launchMode="singleTask"/>
-        <activity android:name="apps.gligerglg.geotone.Contact" android:launchMode="singleTask"></activity>
+        <activity android:name="apps.gligerglg.geotone.MainMenu" android:launchMode="singleTask" android:configChanges="orientation" android:screenOrientation="portrait"/>
+        <activity android:name="apps.gligerglg.geotone.AddLocation" android:launchMode="singleTask" android:configChanges="orientation" android:screenOrientation="portrait"/>
+        <activity android:name="apps.gligerglg.geotone.AddNewPlace" android:launchMode="singleTask" android:configChanges="orientation" android:screenOrientation="portrait"/>
+        <activity android:name="apps.gligerglg.geotone.AddNewActivity" android:launchMode="singleTask" android:configChanges="orientation" android:screenOrientation="portrait"/>
+        <activity android:name="apps.gligerglg.geotone.MapActivity" android:launchMode="singleTask" android:configChanges="orientation" android:screenOrientation="portrait"/>
+        <activity android:name="apps.gligerglg.geotone.About" android:launchMode="singleTask" android:configChanges="orientation" android:screenOrientation="portrait"/>
+        <activity android:name="apps.gligerglg.geotone.Intro" android:launchMode="singleTask" android:configChanges="orientation" android:screenOrientation="portrait"/>
+        <activity android:name="apps.gligerglg.geotone.Contact" android:launchMode="singleTask" android:configChanges="orientation" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

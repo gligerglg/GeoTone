@@ -26,6 +26,6 @@
         android:fontFamily="sans-serif-condensed"
         android:gravity="center"
         android:textColor="@color/text_color_primary"
-        android:text="GeoTone Menu"
+        android:text="@string/geotone_menu"
         android:textSize="24sp" />
 </LinearLayout>

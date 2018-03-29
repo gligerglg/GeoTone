@@ -3,6 +3,7 @@ package apps.gligerglg.geotone;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 public class About extends AppCompatActivity {
@@ -13,6 +14,7 @@ public class About extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         txt_about = findViewById(R.id.txt_about);
         txt_about.setMovementMethod(new ScrollingMovementMethod());
     }
